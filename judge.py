@@ -41,11 +41,11 @@ def case(bot, trigger):
     if target.lower() not in bot.privileges[trigger.sender.lower()]:
         bot.say("You can't sue people who don't exist!")
         return module.NOLIMIT
-    bot.say("%s vs. %s, loser gets kicked!" % (trigger.nick, target))
-    combatants = [trigger.nick, target]
-    random.shuffle(combatants)
-    winner = combatants.pop()
-    loser = combatants.pop()
+    bot.say("%s takes %s to court." % (trigger.nick, target))
+    participants = [trigger.nick, target]
+    random.shuffle(participants)
+    winner = participants.pop()
+    loser = participants.pop()
     if loser == target:
         if bot.privileges[trigger.sender.lower()][bot.nick.lower()] >= module.OP:
           bot.write(['KICK', trigger.sender, loser], "You have been found guilty of " +random.choice(STRINGS['CRIME']) + "!")
