@@ -23,6 +23,9 @@ def duel(bot, trigger):
     if not target:
         bot.reply("Who did you want to duel?")
         return module.NOLIMIT
+    if target == trigger.nick:
+        bot.reply("You can't duel yourself!")
+        return module.NOLIMIT
     if target == bot.nick:
         bot.say("I refuse to duel with the yeller-bellied likes of you!")
         return module.NOLIMIT
