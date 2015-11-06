@@ -11,7 +11,7 @@ import time
 
 TIMEOUT = 600
 
-#these looked fine in IDLE, so idk if i should touch them in git. Also, feel free to make them less bad
+
 STRINGS = {
 	'NOJUDGE':			["You can't sue the judge! Try someone else.",
                                          "Thou shalt not sue the judge. Find another target for your bullying."],
@@ -28,7 +28,7 @@ STRINGS = {
 @module.require_chanmsg
 def case(bot, trigger):
     time_since = time_since_case(bot, trigger.nick)
-    if time_since_case(bot, trigger.nick) < TIMEOUT:
+    if time_since < TIMEOUT:
         bot.notice("You must wait %d seconds until your next case." % (TIMEOUT - time_since), trigger.nick)
         return module.NOLIMIT
     target = tools.Identifier(trigger.group(3) or None)
